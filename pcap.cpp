@@ -14,15 +14,6 @@ void printIP(struct pcap_pkthdr* header, const u_char* packet){
 	struct ip *iph;
 	iph=(struct ip*)(packet+sizeof(struct ether_header));
         printf("<IP information>\n");
-        printf("header length : %d\n",iph->ip_hl);
-        printf("version : %d\n",iph->ip_v);
-        printf("type of service : %u\n",iph->ip_tos);
-        printf("total packet length : %u\n",iph->ip_len);
-        printf("identification : %u\n",iph->ip_id);
-        printf("fragment offset : 0x%x\n",ntohs(iph->ip_off));
-        printf("time to live : %u\n",iph->ip_ttl);
-        printf("protocol : %u\n",iph->ip_p);
-        printf("checksum : %u\n",iph->ip_sum);
         printf("soucre ip address : %s\n",inet_ntoa(iph->ip_src));
         printf("destinatio ip address : %s\n",inet_ntoa(iph->ip_dst));
 }
